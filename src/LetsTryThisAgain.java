@@ -4,6 +4,8 @@ public class LetsTryThisAgain {
         String s = "let us attempt";
         String t = "to undertake a great";
         String r = "Journey: the best video game ever";
+
+        System.out.println(s + " " + t + " " + r);
     }
 
 }
