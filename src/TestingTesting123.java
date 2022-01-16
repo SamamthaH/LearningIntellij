@@ -6,5 +6,6 @@ public class TestingTesting123 {
         for(int x = 0; x<10; x++){
             System.out.println(":D ");
         }
+        System.out.println("new Branch test");
     }
 }
