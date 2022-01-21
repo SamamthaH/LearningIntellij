@@ -31,6 +31,7 @@ public class ArmsAreStrongTest {
         System.setIn(systemIn);
         System.setOut(systemOut);
     }
+    //start of actual tests
     @Test
     public void OutputCheckThreeDigits1() {
         provideInput("153");
@@ -94,6 +95,30 @@ public class ArmsAreStrongTest {
         //Compare
         assertEquals(expectedOut, actualOutput, "The output is different");
 
+    }
+    @Test
+    public void OutputCheckZero(){
+        provideInput("0");
+
+        String expectedOut = "Enter a number: " + System.lineSeparator() +"0 is an Armstrong Number!"+ System.lineSeparator();
+        //Call the main method here
+        ArmsAreStrong.main(new String[0]);
+        //Get the output
+        String actualOutput = getOutput();
+        //Compare
+        assertEquals(expectedOut, actualOutput, "The output is different");
+    }
+    @Test
+    public void OutputCheckOne(){
+        provideInput("1");
+
+        String expectedOut = "Enter a number: " + System.lineSeparator() +"1 is an Armstrong Number!"+ System.lineSeparator();
+        //Call the main method here
+        ArmsAreStrong.main(new String[0]);
+        //Get the output
+        String actualOutput = getOutput();
+        //Compare
+        assertEquals(expectedOut, actualOutput, "The output is different");
     }
 
 }

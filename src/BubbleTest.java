@@ -2,6 +2,19 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BubbleTest {
+//    @Test
+//    public void whenExceptionThrown_thenAssertionSucceeds() {
+//        Exception exception = assertThrows(NumberFormatException.class, () -> {
+//            Integer.parseInt("1a");
+//        });
+//
+//        String expectedMessage = "For input string";
+//        String actualMessage = exception.getMessage();
+//        System.out.println(actualMessage);
+//        assertTrue(actualMessage.contains(expectedMessage));
+//    }
+
+    //maybe run the main method? or try and access the main test method to see what parameters they pass?
 
     @Test
     public void testConstructorSizeInteger(){
