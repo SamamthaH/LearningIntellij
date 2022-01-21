@@ -8,7 +8,8 @@ public class CountAR {
         public static int[] countThisPlease( int [] nums )
         {
             int [] counts = new int[10];
-            for (int num : nums) counts[num]++;
+            for( int i = 0; i < nums.length; i++ )
+                counts[ nums[i] ]++;
             return counts;
         }
 
