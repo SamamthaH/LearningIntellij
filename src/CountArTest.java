@@ -1,34 +1,42 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 import static org.junit.jupiter.api.Assertions.*;
 //switch to using assertArrayEquals
 //implement one that is random each time
 public class CountArTest {
     @Test
     public void methodAll0s(){
-        String expected = "[10, 0, 0, 0, 0, 0, 0, 0, 0, 0]";
-        String actual = Arrays.toString(CountAR.countThisPlease(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
-        assertEquals(expected, actual, "Something messed up");
+        int[] expected = {10, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int[] actual = CountAR.countThisPlease(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0});
+        assertArrayEquals(expected, actual, "Your program does not count all the 0s");
     }
     @Test
     public void methodTestRandomNums(){
-        String expected = "[1, 2, 3, 0, 1, 1, 1, 0, 0, 1]";
-        String actual = Arrays.toString(CountAR.countThisPlease(new int[]{2, 2, 4, 2, 1, 9, 5, 1, 6, 0}));
-        assertEquals(expected, actual, "Something messed up");
+        int[] expected = new int[10];
+        int[] passed = new int[10];
+        for(int x = 0; x <10; x++){
+            int n = (int)(Math.random()*10);
+            passed[x] = n;
+            expected[n]++;
+        }
+        int[] actual = CountAR.countThisPlease(passed);
+
+        assertArrayEquals(expected, actual, "A randomly generated set of numbers between 0-9 failed your test");
     }
     @Test
+    //if this is the only test passed probably hard coded, but don't know how to work with test results in code
     public void testExample(){
-        String expected =  "[0, 1, 0, 2, 3, 1, 0, 2, 0, 3]";
-        String actual = Arrays.toString(CountAR.countThisPlease(new int[]{ 1, 3, 4, 5, 4, 9, 4, 9, 9, 7, 7, 3 }));
-        assertEquals(expected, actual, "Something messed up");
+        int[] expected = {0, 1, 0, 2, 3, 1, 0, 2, 0, 3};
+        int[] actual = CountAR.countThisPlease(new int[]{ 1, 3, 4, 5, 4, 9, 4, 9, 9, 7, 7, 3 });
+        assertArrayEquals(expected, actual, "The example code did not come back right");
     }
     @Test
     public void methodOutOfBoundsException(){
+
         try{
+            //noinspection ResultOfMethodCallIgnored
             CountAR.countThisPlease(new int[]{10, 10, 10, 9, 2,3,4,5,1,7, 5});
-            fail("Array is larger than it should be");
+            fail("Returning array is larger than it should be");
         }
         catch (IndexOutOfBoundsException e){
            assertTrue(true);
@@ -36,15 +44,9 @@ public class CountArTest {
     }
     @Test
     public void methodPassingAnArrayLargerThan10(){
-        String expected = "[1, 2, 3, 0, 1, 1, 1, 1, 0, 1]";
-        String actual = Arrays.toString(CountAR.countThisPlease(new int[]{2, 2, 4, 2, 1, 9, 5, 1, 6, 0, 7}));
-        assertEquals(expected, actual, "Your program did not count all the passed numbers");
-    }
-    @Test
-    public void methodPassArrayOfLargestIntZeros(){
-        String expected = "[100, 0, 0, 0, 0, 0, 0, 0, 0, 0]";
-        String actual = Arrays.toString(CountAR.countThisPlease(new int[100]));
-        assertEquals(expected, actual, "Your program did not count all the passed numbers");
+        int[] expected = {1, 2, 3, 0, 1, 1, 1, 1, 0, 1};
+        int[] actual = CountAR.countThisPlease(new int[]{2, 2, 4, 2, 1, 9, 5, 1, 6, 0, 7});
+        assertArrayEquals(expected, actual, "Your program did not count all the passed numbers");
     }
 
 }

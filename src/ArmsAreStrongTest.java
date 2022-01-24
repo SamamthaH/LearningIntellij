@@ -33,56 +33,74 @@ public class ArmsAreStrongTest {
     }
     //start of actual tests
     @Test
-    public void OutputCheckThreeDigits1() {
-        provideInput("153");
+    public void OutputCheckThreeDigits() {
+        String[] inputs = {"153", "371", "407"};
+        String[] outputs = {"Enter a number: " + System.lineSeparator() +"153 is an Armstrong Number!"+ System.lineSeparator(),
+                "Enter a number: " + System.lineSeparator() +"371 is an Armstrong Number!"+ System.lineSeparator(),
+                "Enter a number: " + System.lineSeparator() +"407 is an Armstrong Number!"+ System.lineSeparator()};
 
-        String expectedOut = "Enter a number: " + System.lineSeparator() +"153 is an Armstrong Number!"+ System.lineSeparator();
-        //Call the main method here
-        ArmsAreStrong.main(new String[0]);
-        //Get the output
-        String actualOutput = getOutput();
-        //Compare
-        assertEquals(expectedOut, actualOutput, "The output is different");
+        for(int x = 0; x<inputs.length; x++){ //for loop runs through the arrays for each test
+            provideInput(inputs[x]);
+            StringBuilder expectedOutput = new StringBuilder(); //Stringbuilder for efficiency
+            for(int y = 0; y<=x; y++){ //for loop adds the previous expected output onto this one, because the console doesn't clear in between loops
+                expectedOutput.append(outputs[y]);
+            }
+            //Call the main method here
+            ArmsAreStrong.main(new String[0]);
+            //Get the output
+            String actualOutput = getOutput();
+            //Compare
+            assertEquals(expectedOutput.toString(), actualOutput, "Your program does not recognize a 3 number armstrong number as valid");
+        }
+
     }
+
+    @Disabled("No functionality for four digits in the current code")
     @Test
-    public void OutputCheckThreeDigits2() {
-        provideInput("371");
+    public void OutputCheckfourdigits() {
+        String[] inputs = {"1634", "8208", "9474"};
+        String[] outputs = {"Enter a number: " + System.lineSeparator() +"1634 is an Armstrong Number!"+ System.lineSeparator(),
+                "Enter a number: " + System.lineSeparator() +"8208 is an Armstrong Number!"+ System.lineSeparator(),
+                "Enter a number: " + System.lineSeparator() +"9474 is an Armstrong Number!"+ System.lineSeparator()};
 
-        String expectedOut = "Enter a number: " + System.lineSeparator() +"371 is an Armstrong Number!"+ System.lineSeparator();
-        //Call the main method here
-        ArmsAreStrong.main(new String[0]);
-        //Get the output
-        String actualOutput = getOutput();
-        //Compare
-        assertEquals(expectedOut, actualOutput, "The output is different");
+        for(int x = 0; x<inputs.length; x++) { //for loop runs through the arrays for each test
+            provideInput(inputs[x]);
+            StringBuilder expectedOutput = new StringBuilder(); //Stringbuilder for efficiency
+            for (int y = 0; y <= x; y++) { //for loop adds the previous expected output onto this one, because the console doesn't clear in between loops
+                expectedOutput.append(outputs[y]);
+            }
+            //Call the main method here
+            ArmsAreStrong.main(new String[0]);
+            //Get the output
+            String actualOutput = getOutput();
+            //Compare
+            assertEquals(expectedOutput.toString(), actualOutput, "Your program does not recognize a 4 number armstrong number as valid");
+        }
     }
 
     @Test
-    public void OutputCheckNotArmstrong1() {
-        provideInput("152");
+    public void OutputCheckNotArmstrong() { //make two arrays with input and output and loop through
+        String[] inputs = {"152", "783", "46"};
+        String[] outputs = {"Enter a number: " + System.lineSeparator() +"152 is NOT an Armstrong Number!"+ System.lineSeparator(),
+                "Enter a number: " + System.lineSeparator() +"783 is NOT an Armstrong Number!"+ System.lineSeparator(),
+                "Enter a number: " + System.lineSeparator() +"46 is NOT an Armstrong Number!"+ System.lineSeparator()};
 
-        String expectedOut = "Enter a number: " + System.lineSeparator() +"152 is NOT an Armstrong Number!"+ System.lineSeparator();
-        //Call the main method here
-        ArmsAreStrong.main(new String[0]);
-        //Get the output
-        String actualOutput = getOutput();
-        //Compare
-        assertEquals(expectedOut, actualOutput, "The output is different");
-
-    }
-    @Test
-    public void OutputCheckNotArmstrong2() {
-        provideInput("783");
-
-        String expectedOut = "Enter a number: " + System.lineSeparator() +"783 is NOT an Armstrong Number!"+ System.lineSeparator();
-        //Call the main method here
-        ArmsAreStrong.main(new String[0]);
-        //Get the output
-        String actualOutput = getOutput();
-        //Compare
-        assertEquals(expectedOut, actualOutput, "The output is different");
+        for(int x = 0; x<inputs.length; x++) { //for loop runs through the arrays for each test
+            provideInput(inputs[x]);
+            StringBuilder expectedOutput = new StringBuilder(); //Stringbuilder for efficiency
+            for (int y = 0; y <= x; y++) { //for loop adds the previous expected output onto this one, because the console doesn't clear in between loops
+                expectedOutput.append(outputs[y]);
+            }
+            //Call the main method here
+            ArmsAreStrong.main(new String[0]);
+            //Get the output
+            String actualOutput = getOutput();
+            //Compare
+            assertEquals(expectedOutput.toString(), actualOutput, "Your program recognizes an invalid number as valid");
+        }
 
     }
+
     @Test
     public void OutputCheckNegative() {
         provideInput("-153");
@@ -93,7 +111,7 @@ public class ArmsAreStrongTest {
         //Get the output
         String actualOutput = getOutput();
         //Compare
-        assertEquals(expectedOut, actualOutput, "The output is different");
+        assertEquals(expectedOut, actualOutput, "Your program recognizes negative numbers as armstrong");
 
     }
     @Test
@@ -106,7 +124,7 @@ public class ArmsAreStrongTest {
         //Get the output
         String actualOutput = getOutput();
         //Compare
-        assertEquals(expectedOut, actualOutput, "The output is different");
+        assertEquals(expectedOut, actualOutput, "Your program does not recognize 0 as an armstrong number");
     }
     @Test
     public void OutputCheckOne(){
@@ -118,7 +136,7 @@ public class ArmsAreStrongTest {
         //Get the output
         String actualOutput = getOutput();
         //Compare
-        assertEquals(expectedOut, actualOutput, "The output is different");
+        assertEquals(expectedOut, actualOutput, "Your program does not recognize 1 as an armstrong number");
     }
 
 }
