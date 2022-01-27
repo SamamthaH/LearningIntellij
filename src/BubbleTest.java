@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BubbleTest {
+    //this is just leftover code from trying to figure out testing for written constructors
 //    @Test
 //    public void whenExceptionThrown_thenAssertionSucceeds() {
 //        Exception exception = assertThrows(NumberFormatException.class, () -> {
@@ -17,21 +18,15 @@ public class BubbleTest {
     //maybe run the main method? or try and access the main test method to see what parameters they pass?
 
     @Test
-    public void testConstructorSizeInteger(){
-        Bubble tsci = new Bubble(23);
-        assertEquals(23, tsci.getSize(), "size from constructor is expected integer");
+    public void testConstructorSize(){
+        Bubble i = new Bubble(23);
+        assertEquals(23, i.getSize(), "size from constructor is expected integer");
 
-    }
-    @Test
-    public void testConstructorSizeDouble(){
-        Bubble tscd = new Bubble(14.2);
-        assertEquals(14.2, tscd.getSize(), "size from constructor is not expected double");
-
-    }
-    @Test
-    public void testConstructorSizeMaxDouble(){
-        Bubble tscd = new Bubble(Double.MAX_VALUE);
-        assertEquals(Double.MAX_VALUE, tscd.getSize(), "size from constructor is not expected double");
+        Bubble d = new Bubble(14.2);
+        assertEquals(14.2, d.getSize(), "size from constructor is not expected double");
+        //tests
+        Bubble md = new Bubble(Double.MAX_VALUE);
+        assertEquals(Double.MAX_VALUE, md.getSize(), "size from constructor is not expected max double value");
 
     }
     @Test
@@ -39,7 +34,7 @@ public class BubbleTest {
         assertFalse(b.getIsPopped(), "constructor did not set bubble to be automatically false");
     }
 
-    Bubble b = new Bubble(5);
+    Bubble b = new Bubble(5); //made new bubble for rest of the test
     @Test
     public void testGetSize(){
         assertEquals(5, b.getSize());
